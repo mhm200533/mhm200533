@@ -1,8 +1,7 @@
 const payload_map =
     [
-
         {
-            displayTitle: 'K-Stuff',
+            displayTitle: 'K-Stuff (FW 4.03 Only)',
             description: 'Allows decryption/running of fpkg apps',
             fileName: 'ps5-kstuff.bin',
             author: 'sleirsgoevy',
