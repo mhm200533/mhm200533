@@ -159,6 +159,7 @@ a:active, a:focus {
     grid-gap: 10px;
     justify-content: center;
     text-align: center;
+    width: 100%;
 }
 
 .grid-item {

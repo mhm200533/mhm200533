@@ -17,25 +17,17 @@ async function switch_to_post_jb_view() {
     // should already be none but just in case
     document.getElementById("run-jb-parent").style.display = "none";
 
-    alert('switch_to_post_jb_view');
-
     document.getElementById("jb-progress").style.opacity = "0";
     await sleep(1000);
     document.getElementById("jb-progress").style.display = "none";
-
-    alert('switch_to_post_jb_view 2');
 
     document.getElementById("post-jb-view").style.opacity = "0";
     document.getElementById("post-jb-view").classList.add("opacity-transition");
     document.getElementById("post-jb-view").style.display = "flex";
     document.getElementById("post-jb-view").style.opacity = "1";
 
-    alert('switch_to_post_jb_view 3');
-
     document.getElementById("credits").style.opacity = "0";
     document.getElementById("credits").style.display = "none";
-
-    alert('switch_to_post_jb_view 4');
 
 }
 

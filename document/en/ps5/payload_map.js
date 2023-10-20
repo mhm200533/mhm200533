@@ -8,13 +8,21 @@ const payload_map =
             source: 'https://github.com/sleirsgoevy/ps4jb2/blob/ps5-403/ps5-kstuff.bin',
             version: '1.0'
         },
+        // {
+        //     displayTitle: 'libhijacker game-patch (broken)',
+        //     description: 'Patches supported games to run at higher framerates, and adds debug menus to certain titles.',
+        //     fileName: 'daemon.elf',
+        //     author: 'illusion0001, astrelsky',
+        //     source: 'https://github.com/illusion0001/libhijacker/releases',
+        //     version: '1.121'
+        // },
         {
-            displayTitle: 'libhijacker game-patch (broken)',
-            description: 'Patches supported games to run at higher framerates, and adds debug menus to certain titles.',
-            fileName: 'daemon.elf',
-            author: 'illusion0001, astrelsky',
-            source: 'https://github.com/illusion0001/libhijacker/releases',
-            version: '1.121'
+            displayTitle: 'PS5 Payload ELF Loader',
+            description: 'Persistent network elf loader',
+            fileName: 'elfldr.elf',
+            author: 'john-tornblom',
+            source:'https://github.com/john-tornblom/ps5-payload-elfldr/releases',
+            version: '0.5'
         },
         {
             displayTitle: 'FTPS5 (Non-Persistent)',
