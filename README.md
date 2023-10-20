@@ -1,6 +1,6 @@
 # PS5 3.xx / 4.xx Kernel Exploit
 
-Modified ps5 host load payload from within the browser.
+Modified ps5 host to load payloads from within the browser.
 
 ---
 TODO:
