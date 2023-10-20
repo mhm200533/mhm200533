@@ -1,4 +1,18 @@
 # PS5 3.xx / 4.xx Kernel Exploit
+
+Modified ps5 host load payload from within the browser.
+
+---
+TODO:
+- [ ] Add a blocking loading screen when loading a payload!!
+- [ ] Auto retry jailbreak on fail
+- [ ] View console
+- [ ] Add back network elf receiver
+- [ ] Caching
+- [ ] Display more info about the payloads
+- [ ] Fix illusion libhijacker
+- [ ] Make a tiny payload to get ip to display
+
 ---
 ## Summary
 This repo contains an experimental WebKit ROP implementation of a PS5 kernel exploit based on **TheFlow's IPV6 Use-After-Free (UAF)**, which was [reported on HackerOne](https://hackerone.com/reports/1441103). The exploit strategy is for the most part based on TheFlow's BSD/PS4 PoC with some changes to accommodate the annoying PS5 memory layout (for more see *Research Notes* section). It establishes an arbitrary read / (semi-arbitrary) write primitive. This exploit and its capabilities have a lot of limitations, and as such, it's mostly intended for developers to play with to reverse engineer some parts of the system.
