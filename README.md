@@ -11,11 +11,11 @@ TODO:
 - [ ] Auto retry jailbreak on fail
 - [ ] View console
 - [ ] Add back network elf receiver
-- [ ] Caching
 - [ ] Display more info about the payloads
 - [ ] Fix illusion libhijacker
 - [ ] Make a tiny payload to get ip to display
 - [ ] If index.html is not at root, payloads probably wont load, fix this
+- [x] Caching
 
 ---
 ## Summary
