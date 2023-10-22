@@ -9,7 +9,7 @@ def calculate_file_hash(file_path):
         sha256_hash.update(data)
     return sha256_hash.hexdigest()
 
-def generate_cache_manifest(directory_path, include_directory_path=True, include_payloads=False):
+def generate_cache_manifest(directory_path, include_directory_path=True, include_payloads=True):
     manifest = ["CACHE MANIFEST"]
     
     for root, _, files in os.walk(directory_path):
@@ -40,8 +40,8 @@ parser.add_argument("-b", "--sub-appcache", action="store_true",
                     help="Generate appcache if your index.html is at document/en/ps5/index.html")
 parser.add_argument("-ab", "--both-appcache", action="store_true",
                     help="Generate both appcache files. (Default)")
-parser.add_argument("-p", "--include-payloads", action="store_true",
-                    help="Include files with 'payload' in its path. (Payload caching is handled in js)")
+# parser.add_argument("-p", "--include-payloads", action="store_true",
+#                     help="Include files with 'payload' in its path. (Payload caching is handled in js)")
 args = parser.parse_args()
 
 if args.root_appcache or args.sub_appcache:
@@ -52,7 +52,8 @@ else:
    
 
 if args.sub_appcache:
-    cache_manifest = generate_cache_manifest(args.directory_path, True, args.include_payloads)
+    # cache_manifest = generate_cache_manifest(args.directory_path, True, args.include_payloads)
+    cache_manifest = generate_cache_manifest(args.directory_path, True)
 
     output_path = "cache.appcache"
     output_path = output_path.replace("\\","/")
