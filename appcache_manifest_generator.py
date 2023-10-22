@@ -17,7 +17,7 @@ def generate_cache_manifest(directory_path, include_directory_path=True, include
             if '.appcache' in file:
                 continue
             file_path = os.path.join(root, file)
-            if not include_payloads and 'payload' in file_path:
+            if not include_payloads and 'payload' in root:
                 continue
             file_hash = calculate_file_hash(file_path)
             
