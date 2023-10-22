@@ -65,7 +65,8 @@ if args.sub_appcache:
 
 
 if args.root_appcache:
-    cache_manifest = generate_cache_manifest(args.directory_path, False, args.include_payloads)
+    # cache_manifest = generate_cache_manifest(args.directory_path, False, args.include_payloads)
+    cache_manifest = generate_cache_manifest(args.directory_path, False)
 
     output_path = "cache.appcache"
     output_path = os.path.join(args.directory_path, output_path)
