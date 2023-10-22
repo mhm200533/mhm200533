@@ -1,9 +1,17 @@
 import http.server
 import socketserver
 import os
+import argparse
+
+# Create an argument parser to accept optional port argument
+parser = argparse.ArgumentParser(description='Simple HTTP server.')
+parser.add_argument('-p','--port', type=int, default=8000, help='port to use for the server')
+
+# Parse the arguments
+args = parser.parse_args()
 
 # Specify the port you want to use for the server
-port = 8000
+port = args.port
 web_root = "document/en/ps5"
 
 # Change the current working directory to the 'wwwroot' folder
