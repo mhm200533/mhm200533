@@ -12,9 +12,9 @@ TODO:
 - [ ] View console
 - [ ] Add back network elf receiver
 - [ ] Display more info about the payloads
-- [ ] Fix illusion libhijacker
 - [ ] Make a tiny payload to get ip to display
 - [ ] If index.html is not at root, payloads probably wont load, fix this
+- [x] Fix illusion libhijacker (needed custom loader)
 - [x] Caching
 
 ---

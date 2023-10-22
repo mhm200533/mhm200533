@@ -8,14 +8,15 @@ const payload_map =
             source: 'https://github.com/sleirsgoevy/ps4jb2/blob/ps5-403/ps5-kstuff.bin',
             version: '1.1'
         },
-        // {
-        //     displayTitle: 'libhijacker game-patch (broken)',
-        //     description: 'Patches supported games to run at higher framerates, and adds debug menus to certain titles.',
-        //     fileName: 'daemon.elf',
-        //     author: 'illusion0001, astrelsky',
-        //     source: 'https://github.com/illusion0001/libhijacker/releases',
-        //     version: '1.121'
-        // },
+        {
+            displayTitle: 'libhijacker game-patch',
+            description: '(v1.124) Patches supported games to run at higher framerates, and adds debug menus to certain titles.',
+            fileName: 'libhijacker-spawner-1.124.elf;libhijacker-daemon-1.124.elf',
+            author: 'illusion0001, astrelsky',
+            source: 'https://github.com/illusion0001/libhijacker/releases',
+            loader: 'libhijacker',
+            version: '1.124'
+        },
         {
             displayTitle: 'PS5 Payload ELF Loader',
             description: 'Uses port 9021. Persistent network elf loader',

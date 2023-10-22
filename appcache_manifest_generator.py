@@ -22,7 +22,6 @@ def generate_cache_manifest(directory_path, include_directory_path=True, include
                 continue
             file_hash = calculate_file_hash(file_path)
             
-            print(file + " -> " + str(file == 'index.html'))
             if args.cloudflare_workaround and file == 'index.html':
                 file_path = file_path.replace("index.html","")
                 if file_path.isspace() or file_path == '':
