@@ -1,4 +1,4 @@
-<html>
+<html manifest="cache.appcache">
 
 <head>
     <title>PS5 Kernel Exploit (3.xx-4.xx)</title>
@@ -13,6 +13,12 @@
     <script defer src="exploit.js"></script>
     <script defer src="payload_map.js"></script>
     <script defer src="custom_host_stuff.js"></script>
+    <script defer src="appcache_handler.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            add_cache_event_toasts();
+        }, false);
+    </script>
 </head>
 
 </html>
