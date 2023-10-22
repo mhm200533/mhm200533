@@ -9,7 +9,7 @@ def calculate_file_hash(file_path):
         sha256_hash.update(data)
     return sha256_hash.hexdigest()
 
-def generate_cache_manifest(directory_path, include_directory_path=True):
+def generate_cache_manifest(directory_path, include_directory_path=True, include_payloads=False):
     manifest = ["CACHE MANIFEST"]
     
     for root, _, files in os.walk(directory_path):
@@ -17,6 +17,8 @@ def generate_cache_manifest(directory_path, include_directory_path=True):
             if '.appcache' in file:
                 continue
             file_path = os.path.join(root, file)
+            if not include_payloads and 'payload' in file_path:
+                continue
             file_hash = calculate_file_hash(file_path)
             
             if include_directory_path:
@@ -38,6 +40,8 @@ parser.add_argument("-b", "--sub-appcache", action="store_true",
                     help="Generate appcache if your index.html is at document/en/ps5/index.html")
 parser.add_argument("-ab", "--both-appcache", action="store_true",
                     help="Generate both appcache files. (Default)")
+parser.add_argument("-p", "--include-payloads", action="store_true",
+                    help="Include files with 'payload' in its path. (Payload caching is handled in js)")
 args = parser.parse_args()
 
 if args.root_appcache or args.sub_appcache:
@@ -48,7 +52,7 @@ else:
    
 
 if args.sub_appcache:
-    cache_manifest = generate_cache_manifest(args.directory_path, True)
+    cache_manifest = generate_cache_manifest(args.directory_path, True, args.include_payloads)
 
     output_path = "cache.appcache"
     output_path = output_path.replace("\\","/")
@@ -60,7 +64,7 @@ if args.sub_appcache:
 
 
 if args.root_appcache:
-    cache_manifest = generate_cache_manifest(args.directory_path, False)
+    cache_manifest = generate_cache_manifest(args.directory_path, False, args.include_payloads)
 
     output_path = "cache.appcache"
     output_path = os.path.join(args.directory_path, output_path)
@@ -70,6 +74,3 @@ if args.root_appcache:
         manifest_file.write("\n".join(cache_manifest))
 
     print(f"Cache manifest generated in path: '{output_path}'")
-    
-
-
