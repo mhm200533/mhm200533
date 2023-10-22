@@ -198,3 +198,36 @@ a:focus {
     margin: 0;
     padding: 0;
 }
+
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.toast {
+    background: #181830;
+    color: #fff;
+    padding: 20px 25px;
+    border-radius: 5px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    min-width: 300px;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.4s, transform 0.4s;
+    pointer-events: none;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.hide {
+    opacity: 0;
+    transform: translateY(-100%);
+}
