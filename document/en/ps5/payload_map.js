@@ -56,5 +56,13 @@ const payload_map =
             source:'https://mega.nz/folder/4xA2ATTI#6lHvye1JUfhxRGvqOva8fw/folder/gwhWmRrB',
             version: '1.0'
         },
+        {
+            displayTitle: 'PS5_Browser_appCache_remove',
+            description: 'Removes appcache from browser.',
+            fileName: 'Browser_appCache_remove.elf',
+            author: 'Storm21CH',
+            source:'https://github.com/Storm21CH/PS5_Browser_appCache_remove/blob/main/Browser_appCache_remove.elf',
+            version: '1.0fix'
+        }
 
     ];
