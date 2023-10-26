@@ -585,6 +585,17 @@ class RuleEngine2:
         The rule checks two things before it continues so I imagine this is
         probably still fast
         """
+
+        # if dns.conf is empty
+        if not self.rule_list:
+            if "playstation" in query.domain.decode() or "sonyentertainmentnetwork" in query.domain.decode() or "scea" in query.domain.decode():
+                # if query contains manual resolve the local ip of this computer
+                if "manual" in query.domain.decode():
+                    print(">> Matched Request to this computer - " + query.domain.decode())
+                    return A(query, socket.gethostbyname(socket.gethostname())).make_packet()
+                print(">> Blocked Request - " + query.domain.decode())
+                return NONEFOUND(query).make_packet()
+
         for rule in self.rule_list:
             result = rule.match(query.type, query.domain, addr)
             if result is not None:
