@@ -207,12 +207,12 @@ a:focus {
     width: 100%;
 }
 
-.grid-item {
+/* .grid-item {
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .mx-auto {
     margin-left: auto;

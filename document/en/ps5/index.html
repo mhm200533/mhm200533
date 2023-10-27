@@ -29,7 +29,8 @@
 
     <div style="margin: 2.5rem;">
         <h1 style="text-align: center;">PS5 Jailbreak 3.xx-4.xx</h1>
-        <p id="current-fw" class="text-secondary" style="text-align: center;"></p>
+        <p id="current-fw" class="text-secondary" style="text-align: center; margin-bottom: 0.5rem; padding-bottom: 0;"></p>
+        <p id="listening-ip" class="text-secondary" style="text-align: center; margin-top: 0; padding-top: 0;"></p>
     </div>
 
     <div id="before-jb-view">
@@ -41,20 +42,20 @@
 
         <div id="jb-progress" class=""
             style="display: none; flex-direction: column; justify-content: center; align-items: center; position: absolute; top: 0;left: 0; width: 100%; height: 100%;">
-            <div class="lds-ellipsis">
+            <div class="lds-ellipsis" style="margin-top: 2.5rem;">
                 <div></div>
                 <div></div>
                 <div></div>
                 <div></div>
             </div>
-            <p id="jb-progress-status-text" style="text-align: center; width: 100%;transform: translateY(1.8rem);">
+            <p id="jb-progress-status-text" style="text-align: center; width: 100%; margin-top: 2.5rem;">
                 Getting
                 ready... <br /><span class="secondary-text">(may look frozen)</span></p>
             <textarea id="console" class="log" style="display: none;"></textarea>
         </div>
 
-        <div id="post-jb-view" class="opacity-transition"
-            style="display: flex; flex-direction: column; justify-content: center; align-items: center;opacity: 0; pointer-events: none;">
+        <div id="post-jb-view" class="mx-auto opacity-transition"
+            style="opacity: 0; pointer-events: none;">
             <!-- please dont judge this, if i create the elements in js after the jailbreak it 'runs out of memory'. -->
             <div id="payloads-list" class="grid-container">
                 <a class="btn mx-auto hidden-btn" id="payload-0" tabindex="0">

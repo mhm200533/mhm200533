@@ -10,8 +10,8 @@ TODO:
 - [ ] Add a blocking loading screen when loading a payload!!
 - [ ] Auto retry jailbreak on fail
 - [ ] View console
-- [ ] Add back network elf receiver
-- [ ] Make a tiny payload to get ip to display
+- [x] Add back network elf receiver
+- [x] Display IP
 - [x] Display more info about the payloads
 - [x] Fix illusion libhijacker (needed custom loader)
 - [x] Caching
