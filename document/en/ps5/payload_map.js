@@ -1,6 +1,22 @@
 const payload_map =
     [
         {
+            displayTitle: 'etaHEN 1.0b By LM',
+            description: '(v1.0 Beta) Runs With 3.xx and 4.xx. FPKG enabler For FW 4.03 & 4.50 Only.',
+            fileName: 'payloads/etaHEN-1.0b.bin',
+            author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
+            source: 'https://github.com/LightningMods/etaHEN',
+            version: '1.0'
+        },
+        {
+            displayTitle: 'etaHEN 1.0b With Cheats By LM',
+            description: '(v1.0 Beta) Runs With 3.xx and 4.xx. FPKG enabler For FW 4.03 & 4.50 Only.',
+            fileName: 'payloads/etaHENwithcheats-1.0b.bin',
+            author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
+            source: 'https://github.com/LightningMods/etaHEN',
+            version: '1.0'
+        },
+        {
             displayTitle: 'K-Stuff',
             description: 'FW 4.03 & 4.50 Only. FPKG enabler',
             fileName: 'ps5-kstuff-v1.1.bin',
