@@ -3,6 +3,10 @@ import socketserver
 import os
 import argparse
 
+#Run Cache
+with open("appcache_manifest_generator.py") as f:
+    exec(f.read())
+
 # Create an argument parser to accept optional port argument
 parser = argparse.ArgumentParser(description='Simple HTTP server.')
 parser.add_argument('-p','--port', type=int, default=8000, help='port to use for the server')
