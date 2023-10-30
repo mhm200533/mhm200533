@@ -6,7 +6,7 @@ const payload_map =
             fileName: 'etaHEN-1.1b.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
             source: 'https://github.com/LightningMods/etaHEN',
-            version: '1.0 beta'
+            version: '1.1 beta'
         },
         {
             displayTitle: 'etaHEN 1.1b With Cheats By LM',
@@ -14,7 +14,7 @@ const payload_map =
             fileName: 'etaHENwithcheats-1.1b.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
             source: 'https://github.com/LightningMods/etaHEN',
-            version: '1.0 beta'
+            version: '1.1 beta'
         },
         {
             displayTitle: 'K-Stuff',
