@@ -1,7 +1,7 @@
 const payload_map =
     [
         {
-            displayTitle: 'etaHEN 1.0b By LM',
+            displayTitle: 'etaHEN 1.1b By LM',
             description: 'Runs With 3.xx and 4.xx. FPKG enabler For FW 4.03 & 4.50 Only.',
             fileName: 'etaHEN-1.1b.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
@@ -9,7 +9,7 @@ const payload_map =
             version: '1.0 beta'
         },
         {
-            displayTitle: 'etaHEN 1.0b With Cheats By LM',
+            displayTitle: 'etaHEN 1.1b With Cheats By LM',
             description: 'Runs With 3.xx and 4.xx. FPKG enabler For FW 4.03 & 4.50 Only.',
             fileName: 'etaHENwithcheats-1.1b.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
