@@ -61,7 +61,7 @@ const payload_map =
             displayTitle: 'Versions',
             description: 'Shows kernel build, os and sdk versions',
             fileName: 'versions.elf',
-            author: '?',
+            author: 'SiSTRo',
             source:'https://mega.nz/folder/4xA2ATTI#6lHvye1JUfhxRGvqOva8fw/folder/gwhWmRrB',
             version: '1.0'
         },
