@@ -5,16 +5,43 @@ Modified ps5 host to load payloads from within the browser.
 Live site link:
 https://ps5jb.pages.dev
 
----
-TODO:
-- [ ] Add a blocking loading screen when loading a payload!!
-- [ ] Auto retry jailbreak on fail
-- [ ] View console
-- [x] Add back network elf receiver
-- [x] Display IP
-- [x] Display more info about the payloads
-- [x] Fix illusion libhijacker (needed custom loader)
-- [x] Caching
+
+## Self-hosting setup
+1. Run fakedns.py with `python fakedns.py` and set the DNS on your PS5 to your computers IP address. (this step is optional if youre using a proper web browser and not the user guide, but you should always use an update blocking dns)
+    - By default domains containing `playstation`, `sonyentertainmentnetwork` and `scea` are blocked, this can be disabled with the `--no-ps-blocking` argument
+    - By default `manuals.playstation.net` (user guide) is set to the current computers IP address, this can be disabled with the `--no-user-guide` argument
+    - You can specify an optional dns config file like this `-c dns.conf`, rules specified here take priority over the above mentioned rules, so if you have a `dns.conf` file like this, `manuals.playstation.net` would get matched to the ip specified in the config file even if `--no-user-guide` is not specified:
+      ```
+      A manuals.playstation.net 192.168.1.2
+      ```
+    - More info with `--help`
+    - If you get a message saying udp port 53 is in use open Services (`services.msc`), and disable then stop `Host Network Service` and `Internet Connection Sharing`
+      - If this didnt work, open a powershell terminal and run this (may require powershell in admin mode)
+        ```
+        Get-Process -Id (Get-NetUDPEndpoint -LocalPort 53).OwningProcess
+        ```
+        you'll see an id column take note of the id then run this
+        ```
+        taskkill /F /PID <ID>
+        ```
+
+1. Create appcache for offline use by running `python appcache_manifest_generator.py`
+    - You can disable caching by deleting `cache.appcache` files if they exist (located in root and `document/en/ps5`) and editing the `index.html`'s first line from
+      ```
+      <html manifest="cache.appcache">
+      ```
+      to
+      ```˙
+      <html>
+      ```
+      by doing this you wont get cache related toasts/notifications
+    - If you disable caching after you had already loaded the page with the cache manifest, its a good idea to run the appcache remover payload, however it shouldnt be necessary
+1. Run web server with `python host.py` for user guide use or `python simple_server.py` if you're using something like leefuls site.
+    - You can add your own payloads by putting them into the `payloads` folder and editing the `payload_map.js` file
+    - Re-run `appcache_manifest_generator.py` after adding payloads or changing files, if you're using caching
+
+You can also watch Modded Warfare's video in setting this host up: https://www.youtube.com/watch?v=gjkaL1pTOQs
+
 
 ---
 ## Summary
