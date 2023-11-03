@@ -503,6 +503,9 @@ class RuleEngine2:
 
         self.rule_list = []
 
+        if file_ is None or not os.path.isfile(file_):
+            return
+
         # A lol.com IP1,IP2,IP3,IP4,IP5,IP6 rebind_threshold%Rebind_IP1,Rebind_IP2
         with open(file_, 'r') as rulefile:
             rules = rulefile.readlines()
@@ -586,16 +589,6 @@ class RuleEngine2:
         probably still fast
         """
 
-        # if dns.conf is empty
-        if not self.rule_list:
-            if "playstation" in query.domain.decode() or "sonyentertainmentnetwork" in query.domain.decode() or "scea" in query.domain.decode():
-                # if query contains manual resolve the local ip of this computer
-                if "manual" in query.domain.decode():
-                    print(">> Matched Request to this computer - " + query.domain.decode())
-                    return A(query, socket.gethostbyname(socket.gethostname())).make_packet()
-                print(">> Blocked Request - " + query.domain.decode())
-                return NONEFOUND(query).make_packet()
-
         for rule in self.rule_list:
             result = rule.match(query.type, query.domain, addr)
             if result is not None:
@@ -610,6 +603,16 @@ class RuleEngine2:
                 print(">> Matched Request - " + query.domain.decode())
                 return response.make_packet()
 
+        if not args.no_user_guide:
+            if "manuals.playstation" in query.domain.decode():
+                print(">> Matched Request to this computer - " + query.domain.decode())
+                return A(query, socket.gethostbyname(socket.gethostname())).make_packet()
+
+        if not args.no_ps_blocking:
+            if "playstation" in query.domain.decode() or "sonyentertainmentnetwork" in query.domain.decode() or "scea" in query.domain.decode():
+                print(">> Blocked Request - " + query.domain.decode())
+                return NONEFOUND(query).make_packet()
+
         # if we got here, we didn't match.
         # Forward a request that we didnt have a rule for to someone else
 
@@ -617,6 +620,7 @@ class RuleEngine2:
         if args.noforward:
             print(">> Don't Forward %s" % query.domain.decode())
             return NONEFOUND(query).make_packet()
+        
         try:
             s = socket.socket(type=socket.SOCK_DGRAM)
             s.settimeout(3.0)
@@ -651,7 +655,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='FakeDNS - A Python DNS Server')
     parser.add_argument(
-        '-c', dest='path', action='store', required=True,
+        '-c', dest='path', action='store', required=False,
         help='Path to configuration file')
     parser.add_argument(
         '-i', dest='iface', action='store', default='0.0.0.0', required=False,
@@ -671,6 +675,14 @@ if __name__ == '__main__':
         '--noforward', dest='noforward', action='store_true', default=False, required=False,
         help='Sets if FakeDNS should forward any non-matching requests'
     )
+    parser.add_argument(
+        '--no-ps-blocking', dest='no_ps_blocking', action='store_true', default=False, required=False,
+        help='Do not add playstation blocking rules'
+    )
+    parser.add_argument(
+        '--no-user-guide', dest='no_user_guide', action='store_true', default=False, required=False,
+        help='Do not set the playstation user guide to the current pc ip address'
+    )
 
     # todo: remove this - it's confusing, and we should be able to set this per-record. Keep for now for quickness.
     parser.add_argument(
@@ -684,14 +696,7 @@ if __name__ == '__main__':
     # this is a not-very-coherent way to pull this off but we'll be changing the behavior of FakeDNS soon so it's OK
     args.authoritative = True ^ args.non_authoritative
 
-    # Default config file path.
-    path = args.path
-    if not os.path.isfile(path):
-        print('>> Please create a "dns.conf" file or specify a config path: ' \
-              './fakedns.py [configfile]')
-        exit()
-
-    rules = RuleEngine2(path)
+    rules = RuleEngine2(args.path)
     rule_list = rules.rule_list
 
     interface = args.iface
@@ -707,5 +712,6 @@ if __name__ == '__main__':
 
     # Tell python what happens if someone presses ctrl-C
     signal.signal(signal.SIGINT, signal_handler)
+    print(">> FakeDNS is listening on {0}:{1}".format(interface, port))
     server.serve_forever()
     server_thread.join()
