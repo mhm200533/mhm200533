@@ -40,7 +40,7 @@ https://ps5jb.pages.dev
     - You can add your own payloads by putting them into the `payloads` folder and editing the `payload_map.js` file
     - Re-run `appcache_manifest_generator.py` after adding payloads or changing files, if you're using caching
 
-You can also watch Modded Warfare's video in setting this host up: https://www.youtube.com/watch?v=gjkaL1pTOQs
+You can also watch Modded Warfare's video on setting this host up: https://www.youtube.com/watch?v=gjkaL1pTOQs
 
 
 ---
