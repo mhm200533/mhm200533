@@ -606,7 +606,7 @@ class RuleEngine2:
         if not args.no_user_guide:
             if "manuals.playstation" in query.domain.decode():
                 print(">> Matched Request to this computer - " + query.domain.decode())
-                return A(query, socket.gethostbyname(socket.gethostname())).make_packet()
+                return A(query, socket.gethostbyname(socket.gethostname()+".local")).make_packet()
 
         if not args.no_ps_blocking:
             if "playstation" in query.domain.decode() or "sonyentertainmentnetwork" in query.domain.decode() or "scea" in query.domain.decode():
