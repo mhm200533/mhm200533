@@ -484,7 +484,7 @@ class RuleEngine2:
         for ip in ips:
             if ip.lower() == 'self':
                 try:
-                    self_ip = socket.gethostbyname(socket.gethostname())
+                    self_ip = socket.gethostbyname(socket.gethostname()+".local")
                 except socket.error:
                     print(">> Could not get your IP address from your " \
                           "DNS Server.")
