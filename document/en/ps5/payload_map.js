@@ -27,11 +27,10 @@ const payload_map =
         {
             displayTitle: 'libhijacker game-patch',
             description: 'Patches supported games to run at higher framerates, and adds debug menus to certain titles.',
-            fileName: 'libhijacker-spawner-1.124.elf;libhijacker-daemon-1.124.elf',
+            fileName: 'libhijacker-1.136.elf',
             author: 'illusion0001, astrelsky',
             source: 'https://github.com/illusion0001/libhijacker/releases',
-            loader: 'libhijacker',
-            version: '1.124'
+            version: '1.136'
         },
         {
             displayTitle: 'PS5 Payload ELF Loader',
