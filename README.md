@@ -3,7 +3,7 @@
 Modified ps5 host to load payloads from within the browser.
 
 - Site hosted on Cloudflare's CDN: https://ps5jb.pages.dev
-- This site is set up with automatic deployment, `appcache_manifest_generator.py` is ran on each commit.
+- This site is set up with automatic deployment, `deploy.py` is ran on each commit.
 
 
 ## Self-hosting setup
