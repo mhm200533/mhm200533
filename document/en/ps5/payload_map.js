@@ -1,7 +1,7 @@
 const payload_map =
     [
         {
-            displayTitle: 'etaHEN 1.1b By LM',
+            displayTitle: 'etaHEN',
             description: 'Runs With 3.xx and 4.xx. FPKG enabler For FW 4.03-4.51 Only.',
             fileName: 'etaHEN-1.1b.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
@@ -9,7 +9,7 @@ const payload_map =
             version: '1.1 beta'
         },
         {
-            displayTitle: 'etaHEN 1.1b With Cheats By LM',
+            displayTitle: 'etaHEN With Cheats',
             description: 'Runs With 3.xx and 4.xx. FPKG enabler For FW 4.03-4.51 Only.',
             fileName: 'etaHENwithcheats-1.1b.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
@@ -31,6 +31,14 @@ const payload_map =
             author: 'illusion0001, astrelsky',
             source: 'https://github.com/illusion0001/libhijacker/releases',
             version: '1.136'
+        },
+        {
+            displayTitle: 'ps5debug',
+            description: 'Debugger (Experimental beta)',
+            fileName: 'ps5debug.elf',
+            author: 'SiSTR0, ctn123',
+            source: 'https://github.com/GoldHEN/ps5debug',
+            version: '1.0b1'
         },
         {
             displayTitle: 'PS5 Payload ELF Loader',
