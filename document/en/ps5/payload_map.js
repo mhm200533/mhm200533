@@ -27,10 +27,10 @@ const payload_map =
         {
             displayTitle: 'libhijacker game-patch',
             description: 'Patches supported games to run at higher framerates, and adds debug menus to certain titles.',
-            fileName: 'libhijacker-1.136.elf',
+            fileName: 'libhijacker-1.137.elf',
             author: 'illusion0001, astrelsky',
             source: 'https://github.com/illusion0001/libhijacker/releases',
-            version: '1.136'
+            version: '1.137'
         },
         {
             displayTitle: 'ps5debug',
