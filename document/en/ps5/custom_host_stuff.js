@@ -1,4 +1,8 @@
-async function runJailbreak() {
+async function runJailbreak(skip_animation = false) {
+    if (window.jb_in_progress || window.jb_started) {
+        return;
+    }
+
     window.jb_in_progress = true;
     window.jb_started = true;
     let l2_redirector = document.getElementById("l2-redirect");
@@ -9,15 +13,30 @@ async function runJailbreak() {
     postjb.style.pointerEvents = "none";
 
     document.getElementById("run-jb-parent").style.opacity = "0";
-    await sleep(500);
+    if (!skip_animation) {
+        await sleep(500);
+    }
     document.getElementById("run-jb-parent").style.display = "none";
     document.getElementById("jb-progress").style.opacity = "1";
-    await sleep(500);
+    if (!skip_animation) {
+        await sleep(500);
+    }
+
+    if (skip_animation) {
+        await sleep(50); // give time to render
+    }
 
     create_payload_buttons();
-    setTimeout(() => {
-        poc();
-    }, 100);
+    setTimeout(async () => {
+        let current_url = window.location.href;
+        if (!current_url.includes("?")) {
+            var url = new URL(current_url);
+            url.searchParams.set('retry', 'true');
+            var newUrl = url.href;
+            history.pushState(null, null, newUrl);
+        }
+        await poc();
+    }, skip_animation ? 100 : 500);
 }
 
 function onload_setup() {
@@ -93,6 +112,12 @@ function onload_setup() {
     });
 
     create_redirector_buttons();
+
+    let url = new URL(window.location.href);
+    let retry = url.searchParams.get("retry");
+    if (retry == "true") {
+        runJailbreak(true);
+    }
 }
 
 function redirectorGo() {
