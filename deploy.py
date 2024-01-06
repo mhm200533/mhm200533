@@ -11,6 +11,7 @@ def add_version():
 
     if version_index != -1:
         closing_b_index = content.find('</b>', version_index)
+        version_opening_tag_end_index = version_index + len('<b id="version">')
 
         if closing_b_index != -1:
             commit_count = get_commit_count()
@@ -18,8 +19,8 @@ def add_version():
             if commit_count is None:
                 print('Error couldnt get commit count.')
                 return
-            updated_content = content[:closing_b_index] + \
-                ' | v1.' + commit_count + content[closing_b_index:]
+            updated_content = content[:version_opening_tag_end_index] + \
+                ' | v1.04 | v1.' + commit_count + content[closing_b_index:]
 
             with open(path, 'w') as file:
                 file.write(updated_content)

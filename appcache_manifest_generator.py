@@ -48,8 +48,6 @@ parser.add_argument("-b", "--sub-appcache", action="store_true",
                     help="Generate appcache if your index.html is at document/en/ps5/index.html")
 parser.add_argument("-ab", "--both-appcache", action="store_true",
                     help="Generate both appcache files. (Default)")
-# parser.add_argument("-p", "--include-payloads", action="store_true",
-#                     help="Include files with 'payload' in its path. (Payload caching is handled in js)")
 parser.add_argument("-cf", "--cloudflare-workaround", action="store_true",
                     help="Cloudflare responds with 308 redirect to root when fetching index.html. Causing the appcache to error out.")
 args = parser.parse_args()
@@ -62,7 +60,6 @@ else:
    
 
 if args.sub_appcache:
-    # cache_manifest = generate_cache_manifest(args.directory_path, True, args.include_payloads)
     cache_manifest = generate_cache_manifest(args.directory_path, True)
 
     output_path = "cache.appcache"
@@ -75,7 +72,6 @@ if args.sub_appcache:
 
 
 if args.root_appcache:
-    # cache_manifest = generate_cache_manifest(args.directory_path, False, args.include_payloads)
     cache_manifest = generate_cache_manifest(args.directory_path, False)
 
     output_path = "cache.appcache"
