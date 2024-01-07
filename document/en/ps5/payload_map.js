@@ -10,7 +10,7 @@ const payload_map =
         },
         {
             displayTitle: 'K-Stuff',
-            description: 'FPKG enabler, 3.xx & 4.03-4.51 only',
+            description: 'FPKG enabler, 3.xx, 4.00 & 4.03-4.51 only',
             fileName: 'ps5-kstuff-v1.3.bin',
             author: 'sleirsgoevy',
             source: 'https://github.com/idlesauce/ps5-kstuff-builds/releases',
