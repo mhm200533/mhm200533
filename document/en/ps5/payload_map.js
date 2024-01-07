@@ -2,7 +2,7 @@ const payload_map =
     [
         {
             displayTitle: 'etaHEN',
-            description: 'Runs With 3.xx and 4.xx. FPKG enabler For FW 3.xx / 4.xx Only.',
+            description: 'All-in-one HEN, fpkg on FW 3.00, 3.20, 3.21 & 4.03-4.51 only',
             fileName: 'etaHEN-1.31B.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
             source: 'https://github.com/LightningMods/etaHEN',
@@ -10,11 +10,11 @@ const payload_map =
         },
         {
             displayTitle: 'K-Stuff',
-            description: 'FW 3.00, 3.20, 3.21 & 4.03-4.51 Only (Browser crashes on 3.xx). FPKG enabler',
-            fileName: 'ps5-kstuff-v1.2.bin',
+            description: 'FPKG enabler, 3.xx & 4.03-4.51 only',
+            fileName: 'ps5-kstuff-v1.3.bin',
             author: 'sleirsgoevy',
-            source: 'https://github.com/sleirsgoevy/ps4jb2/blob/ps5-403/ps5-kstuff.bin',
-            version: '1.2'
+            source: 'https://github.com/idlesauce/ps5-kstuff-builds/releases',
+            version: '1.3'
         },
         {
             displayTitle: 'libhijacker game-patch',
@@ -31,6 +31,14 @@ const payload_map =
             author: 'SiSTR0, ctn123',
             source: 'https://github.com/GoldHEN/ps5debug',
             version: '1.0b1'
+        },
+        {
+            displayTitle: 'HEN-V',
+            description: 'PS5 Homebrew Enabler, FTP, klog',
+            fileName: 'henv.elf',
+            author: 'astrelsky',
+            source:'https://github.com/astrelsky/HEN-V/releases',
+            version: '0.0.0-alpha'
         },
         {
             displayTitle: 'PS5 Payload ELF Loader',
@@ -61,7 +69,7 @@ const payload_map =
             description: 'Shows kernel build, os and sdk versions',
             fileName: 'versions.elf',
             author: 'SiSTRo',
-            source:'https://mega.nz/folder/4xA2ATTI#6lHvye1JUfhxRGvqOva8fw/folder/gwhWmRrB',
+            source:'https://github.com/SiSTR0/ps5-versions/releases/download/v1.0/ps5-versions.elf',
             version: '1.0'
         },
         {
