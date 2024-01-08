@@ -10,11 +10,11 @@ const payload_map =
         },
         {
             displayTitle: 'K-Stuff',
-            description: 'FPKG enabler, 3.xx, 4.00 & 4.03-4.51 only',
-            fileName: 'ps5-kstuff-v1.3.bin',
+            description: 'FPKG enabler, 3.xx-4.xx supported',
+            fileName: 'ps5-kstuff-v1.4.bin',
             author: 'sleirsgoevy',
             source: 'https://github.com/idlesauce/ps5-kstuff-builds/releases',
-            version: '1.3'
+            version: '1.4'
         },
         {
             displayTitle: 'libhijacker game-patch',
