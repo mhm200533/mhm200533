@@ -38,7 +38,7 @@ const payload_map =
             fileName: 'henv.elf',
             author: 'astrelsky',
             source:'https://github.com/astrelsky/HEN-V/releases',
-            version: '0.0.0-alpha'
+            version: '0.0.1-alpha'
         },
         {
             displayTitle: 'PS5 Payload ELF Loader',
