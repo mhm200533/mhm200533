@@ -2,15 +2,15 @@ const payload_map =
     [
         {
             displayTitle: 'etaHEN',
-            description: 'All-in-one HEN, fpkg on FW 3.00, 3.20, 3.21 & 4.03-4.51 only',
-            fileName: 'etaHEN-1.31B.bin',
+            description: 'All-in-one HEN',
+            fileName: 'etaHEN-1.4B.bin',
             author: 'LightningMods_, sleirsgoevy, ChendoChap, astrelsky, illusion',
             source: 'https://github.com/LightningMods/etaHEN',
-            version: '1.31 beta'
+            version: '1.4 beta'
         },
         {
             displayTitle: 'K-Stuff',
-            description: 'FPKG enabler, 3.xx-4.xx supported',
+            description: 'FPKG enabler',
             fileName: 'ps5-kstuff-v1.4.bin',
             author: 'sleirsgoevy',
             source: 'https://github.com/idlesauce/ps5-kstuff-builds/releases',
