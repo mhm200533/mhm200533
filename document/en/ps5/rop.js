@@ -350,8 +350,10 @@ class thread_rop extends rop {
 
         //add pthread_exit((void*)0x44414544); -> "DEAD"
         this.fcall(libKernelBase.add32(OFFSET_lk_pthread_exit), 0x44414544);
-
+        
+        alert("fails here");
         await chain.call(libKernelBase.add32(OFFSET_lk_pthread_create_name_np), this.stack_memory.add32(0x48), 0x0, libSceLibcInternalBase.add32(OFFSET_lc_longjmp), this.stack_memory, this.stack_memory.add32(0x50));
+        alert("works?");
         return p.read8(this.stack_memory.add32(0x48));
     }
 }

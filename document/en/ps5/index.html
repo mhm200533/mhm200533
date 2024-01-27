@@ -1,4 +1,4 @@
-<html manifest="cache.appcache">
+<html>
 
 <head>
     <title>PS5 Kernel Exploit (3.xx-4.xx)</title>
@@ -11,7 +11,25 @@
     <script defer src="payload_map.js"></script>
     <script defer src="custom_host_stuff.js"></script>
     <script defer src="appcache_handler.js"></script>
+    <script defer src="module/utils.js"></script>
+    <script defer src="module/constants.js"></script>
+    <script defer src="module/int64.js"></script>
+    <script defer src="module/mem.js"></script>
+    <script defer src="module/memtools.js"></script>
+    <script defer src="module/rw.js"></script>
+    <script defer src="webkit_psfree.js"></script>
     <script>
+        addEventListener('unhandledrejection', (event) => {
+            const reason = event.reason;
+            // We log the line and column numbers as well since some exceptions (like
+            // SyntaxError) do not show it in the stack trace.
+            alert(
+                `${reason}\n`
+                + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
+                + `${reason.stack}`
+            );
+            throw reason;
+        });
         window.addEventListener('load', function () {
             onload_setup();
         }, false);
@@ -135,7 +153,8 @@
                     <a href="https://twitter.com/flat_z">@flat_z</a>,
                     <a href="https://twitter.com/notzecoxao">@notzecoxao</a>,
                     <a href="https://twitter.com/SocraticBliss">@SocraticBliss</a>,
-                    laureeeeeee
+                    laureeeeeee,
+                    abc
                 </h3>
             </center>
         </div>
