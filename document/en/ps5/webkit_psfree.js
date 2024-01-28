@@ -736,13 +736,16 @@ async function run() {
             mem.write64(new Int("0x" + addr), newValue);            
         },
         write4: function (addr, value) {
-            mem.write32(new Int("0x" + addr), new Int("0x"+value));
+            let newValue = typeof (value) === 'object' ? new Int("0x" + value) : new Int(value);
+            mem.write32(new Int("0x" + addr), newValue);
         },
         write2: function (addr, value) {
-            mem.write16(new Int("0x" + addr), new Int("0x"+value));
+            let newValue = typeof (value) === 'object' ? new Int("0x" + value) : new Int(value);
+            mem.write16(new Int("0x" + addr), newValue);
         },
         write1: function (addr, value) {
-            mem.write8(new Int("0x" + addr), new Int("0x"+value));
+            let newValue = typeof (value) === 'object' ? new Int("0x" + value) : new Int(value);
+            mem.write8(new Int("0x" + addr), newValue);
         },
         read8: function (addr) {
             let tmp = mem.read64(new Int("0x"+addr),0)
