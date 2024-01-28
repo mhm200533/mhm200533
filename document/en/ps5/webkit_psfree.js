@@ -712,7 +712,7 @@ async function get_ready() {
     });
 }
 
-async function run() {
+async function run_psfree() {
     debug_log('[+] Webkit exploit (PSFree) (Step 0 - Readying)');
     await get_ready();
 

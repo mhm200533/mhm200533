@@ -16,9 +16,17 @@ async function runJailbreak() {
 
     create_payload_buttons();
     setTimeout(async () => {
-        // await poc();
-        await run();
+        let wk_exploit_type = localStorage.getItem("wk_exploit_type");
+        if (wk_exploit_type == "psfree") {
+            await run_psfree();
+        } else if (wk_exploit_type == "fontface") {
+            await run_fontface();
+        }
     }, 100);
+}
+
+function wk_expoit_type_changed(event) { 
+    localStorage.setItem("wk_exploit_type", event.target.value);
 }
 
 function onload_setup() {
@@ -32,6 +40,20 @@ function onload_setup() {
     document.documentElement.style.overflowX = 'hidden';
     let redirector = document.getElementById("redirector-view");
     let center_view = document.getElementById("center-view");
+
+    let menu_overlay = document.getElementById("menu-overlay");
+    let menu = document.getElementById("menu-bar-wrapper");
+
+    if (localStorage.getItem("wk_exploit_type") == null) {
+        localStorage.setItem("wk_exploit_type", "psfree");
+    }
+
+    let wk_exploit_type = localStorage.getItem("wk_exploit_type");
+    if (wk_exploit_type == "psfree") {
+        document.getElementById("wk-exploit-psfree").checked = true;
+    } else if (wk_exploit_type == "fontface") {
+        document.getElementById("wk-exploit-fontface").checked = true;
+    }
 
     let isTransitionInProgress = false;
 
@@ -88,6 +110,31 @@ function onload_setup() {
                 }, 10);
 
 
+            }
+
+        }
+
+
+        if (event.keyCode == 52 || event.keyCode == 119) {
+            if (isTransitionInProgress || window.jb_in_progress || window.jb_started) {
+                return;
+            }
+            isTransitionInProgress = true;
+            if (menu_overlay.style.top == "-100%") {
+                menu_overlay.style.top = "0";
+                menu_overlay.style.opacity = "1";
+                menu.style.right = "0";
+                setTimeout(() => {
+                    isTransitionInProgress = false;
+                }, 420);
+            } else {
+                menu_overlay.style.opacity = "0";
+                menu.style.right = "-400px";
+                setTimeout(() => {
+                    menu_overlay.style.top = "-100%";
+                    isTransitionInProgress = false;
+                }, 420);
+                
             }
 
         }
