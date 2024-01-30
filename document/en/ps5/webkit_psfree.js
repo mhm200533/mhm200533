@@ -734,40 +734,59 @@ async function run_psfree() {
     // clear_log();
 
     let prim = {
-        write8: function (addr, value) {
-            let newValue = typeof (value) === 'object' ? new Int("0x" + value) : new Int(value);
-            mem.write64(new Int("0x" + addr), newValue);            
+        read1(addr) {
+            addr = new Int(addr.low, addr.hi);
+            const res = mem.read8(addr);
+            return res;
         },
-        write4: function (addr, value) {
-            let newValue = typeof (value) === 'object' ? new Int("0x" + value) : new Int(value);
-            mem.write32(new Int("0x" + addr), newValue);
+
+        read2(addr) {
+            addr = new Int(addr.low, addr.hi);
+            const res = mem.read16(addr);
+            return res;
         },
-        write2: function (addr, value) {
-            let newValue = typeof (value) === 'object' ? new Int("0x" + value) : new Int(value);
-            mem.write16(new Int("0x" + addr), newValue);
+
+        read4(addr) {
+            addr = new Int(addr.low, addr.hi);
+            const res = mem.read32(addr);
+            return res;
         },
-        write1: function (addr, value) {
-            let newValue = typeof (value) === 'object' ? new Int("0x" + value) : new Int(value);
-            mem.write8(new Int("0x" + addr), newValue);
+
+        read8(addr) {
+            addr = new Int(addr.low, addr.hi);
+            const res = mem.read64(addr);
+            return new int64(res.low(), res.high());
         },
-        read8: function (addr) {
-            let tmp = mem.read64(new Int("0x"+addr),0)
-            let low = tmp.low();
-            let high = tmp.high();
-            return new int64(low,high);
+
+        write1(addr, value) {
+            addr = new Int(addr.low, addr.hi);
+            mem.write8(addr, value);
         },
-        read4: function (addr) {
-            return mem.read32(new Int("0x" + addr), 0);
+
+        write2(addr, value) {
+            addr = new Int(addr.low, addr.hi);
+            mem.write16(addr, value);
         },
-        read2: function (addr) {
-            return mem.read16(new Int("0x" + addr), 0);
+
+        write4(addr, value) {
+            addr = new Int(addr.low, addr.hi);
+            mem.write32(addr, value);
         },
-        read1: function (addr) {
-            return mem.read8(new Int("0x" + addr), 0);
+
+        write8(addr, value) {
+            addr = new Int(addr.low, addr.hi);
+            if (value instanceof int64) {
+                value = new Int(value.low, value.hi);
+                mem.write64(addr, value);
+            } else {
+                mem.write64(addr, new Int(value));
+            }
+
         },
-        leakval: function (obj) {
-            let tmp = mem.addrof(obj);
-            return new int64(tmp.low(), tmp.high());
+
+        leakval(obj) {
+            const res = mem.addrof(obj);
+            return new int64(res.low(), res.high());
         }
     };
 
