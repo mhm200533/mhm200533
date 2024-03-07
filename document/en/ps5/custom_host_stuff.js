@@ -368,7 +368,7 @@ function create_payload_buttons() {
 
 }
 
-function showToast(message) {
+function showToast(message, timeout = 2000) {
     const toastContainer = document.getElementById('toast-container');
     const toast = document.createElement('div');
     toast.className = 'toast';
@@ -386,5 +386,5 @@ function showToast(message) {
         toast.addEventListener('transitionend', () => {
             toast.remove();
         });
-    }, 2000);
+    }, timeout);
 }
