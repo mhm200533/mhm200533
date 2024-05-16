@@ -45,17 +45,17 @@ const payload_map =
             description: 'Uses port 9021. Persistent network elf loader',
             fileName: 'elfldr.elf',
             author: 'john-tornblom',
-            source:'https://github.com/john-tornblom/ps5-payload-elfldr/releases',
-            version: '0.10'
+            source:'https://github.com/ps5-payload-dev/elfldr/releases',
+            version: '0.14'
         },
         {
-            displayTitle: 'ps5-payload-shsrv',
+            displayTitle: 'shsrv',
             description: "Telnet shell server. Runs on port 2323. Uses john-tornblom's elfldr.",
             fileName: 'shsrv.elf',
             author: 'john-tornblom',
             loader: 'john-tornblom-elfldr',
-            source:'https://github.com/john-tornblom/ps5-payload-shsrv',
-            version: '0.3'
+            source:'https://github.com/ps5-payload-dev/shsrv/releases',
+            version: '0.7'
         },
         {
             displayTitle: 'FTPS5 (Non-Persistent)',
