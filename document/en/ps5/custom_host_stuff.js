@@ -274,7 +274,7 @@ function create_redirector_buttons() {
         a1.tabIndex = "0";
         a1.innerHTML = redirector_history_store[i];
         a1.onclick = () => {
-            window.location = redirector_history_store[i];
+            window.location.replace(redirector_history_store[i]);
         };
         div.appendChild(a1);
 
