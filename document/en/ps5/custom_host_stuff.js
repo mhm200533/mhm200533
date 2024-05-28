@@ -219,7 +219,7 @@ function create_redirector_buttons() {
         a1.tabIndex = "0";
         a1.innerHTML = redirector_pinned_store[i];
         a1.onclick = () => {
-            window.location = redirector_pinned_store[i];
+            window.location.replace(redirector_pinned_store[i]);
         };
 
         div.appendChild(a1);
