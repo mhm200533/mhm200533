@@ -49,13 +49,40 @@ const payload_map =
             version: '0.14'
         },
         {
+            displayTitle: 'websrv',
+            description: "Uses john-tornblom's elfldr. Custom homebrew loader. Runs on port 8000.",
+            fileName: 'websrv.elf',
+            author: 'john-tornblom',
+            loader: 'john-tornblom-elfldr',
+            source:'https://github.com/ps5-payload-dev/websrv/releases',
+            version: '0.4'
+        },
+        {
             displayTitle: 'shsrv',
-            description: "Telnet shell server. Runs on port 2323. Uses john-tornblom's elfldr.",
+            description: "Uses john-tornblom's elfldr. Telnet shell server. Runs on port 2323.",
             fileName: 'shsrv.elf',
             author: 'john-tornblom',
             loader: 'john-tornblom-elfldr',
             source:'https://github.com/ps5-payload-dev/shsrv/releases',
             version: '0.7'
+        },
+        {
+            displayTitle: 'ftpsrv',
+            description: "Uses john-tornblom's elfldr. FTP server. Runs on port 2121.",
+            fileName: 'ftpsrv.elf',
+            author: 'john-tornblom',
+            loader: 'john-tornblom-elfldr',
+            source:'https://github.com/ps5-payload-dev/ftpsrv/releases',
+            version: '0.7'
+        },
+        {
+            displayTitle: 'klogsrv',
+            description: "Uses john-tornblom's elfldr. Klog server. Runs on port 3232.",
+            fileName: 'klogsrv.elf',
+            author: 'john-tornblom',
+            loader: 'john-tornblom-elfldr',
+            source:'https://github.com/ps5-payload-dev/klogsrv/releases',
+            version: '0.4'
         },
         {
             displayTitle: 'FTPS5 (Non-Persistent)',
@@ -67,7 +94,7 @@ const payload_map =
         },
         {
             displayTitle: 'FTPS5 (Persistent)',
-            description: 'FTP Server',
+            description: 'FTP Server, causes kernel panic on shutdown.',
             fileName: 'ftps5-p.elf',
             author: 'SiSTR0, zecoxao, EchoStretch',
             source:'https://github.com/EchoStretch/FTPS5/releases',
