@@ -50,7 +50,7 @@ const payload_map =
         },
         {
             displayTitle: 'websrv',
-            description: "Uses john-tornblom's elfldr. Custom homebrew loader. Runs on port 8000.",
+            description: "Uses john-tornblom's elfldr. Custom homebrew loader. Runs on port 8080.",
             fileName: 'websrv.elf',
             author: 'john-tornblom',
             loader: 'john-tornblom-elfldr',
