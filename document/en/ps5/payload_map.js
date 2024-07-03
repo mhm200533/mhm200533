@@ -85,6 +85,15 @@ const payload_map =
             version: '0.4'
         },
         {
+            displayTitle: 'gdbsrv',
+            description: "Uses john-tornblom's elfldr. GDB server. Runs on port 2159.",
+            fileName: 'gdbsrv.elf',
+            author: 'john-tornblom',
+            loader: 'john-tornblom-elfldr',
+            source:'https://github.com/ps5-payload-dev/gdbsrv/releases',
+            version: '0.3'
+        },
+        {
             displayTitle: 'FTPS5 (Non-Persistent)',
             description: 'FTP Server',
             fileName: 'ftps5-np.elf',
