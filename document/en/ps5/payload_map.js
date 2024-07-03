@@ -50,12 +50,12 @@ const payload_map =
         },
         {
             displayTitle: 'websrv',
-            description: "Uses john-tornblom's elfldr. Custom homebrew loader. Runs on port 8000.",
+            description: "Uses john-tornblom's elfldr. Custom homebrew loader. Runs on port 8080.",
             fileName: 'websrv.elf',
             author: 'john-tornblom',
             loader: 'john-tornblom-elfldr',
             source:'https://github.com/ps5-payload-dev/websrv/releases',
-            version: '0.4'
+            version: '0.7'
         },
         {
             displayTitle: 'shsrv',
