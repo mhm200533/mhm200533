@@ -64,7 +64,7 @@ const payload_map =
             author: 'john-tornblom',
             loader: 'john-tornblom-elfldr',
             source:'https://github.com/ps5-payload-dev/shsrv/releases',
-            version: '0.8'
+            version: '0.9'
         },
         {
             displayTitle: 'ftpsrv',
