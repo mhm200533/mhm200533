@@ -132,6 +132,22 @@ const payload_map =
             author: 'Storm21CH',
             source:'https://github.com/Storm21CH/PS5_Browser_appCache_remove/blob/main/Browser_appCache_remove.elf',
             version: '1.0fix'
+        },
+        {
+            displayTitle: 'PS5-BackupDB',
+            description: 'Backups up main databases to usb.',
+            fileName: 'BackupDB.elf',
+            author: 'Storm21CH, Jeroendev, Logic68',
+            source:'https://github.com/Storm21CH/PS5-BackupDB/releases/tag/v1.00',
+            version: '1.00'
+        },
+        {
+            displayTitle: 'PS5-BackupDbUser',
+            description: 'May take a long time! Backups up main databases and user files to usb.',
+            fileName: 'BackupDbUser.elf',
+            author: 'Storm21CH, Jeroendev, Logic68',
+            source:'https://github.com/Storm21CH/PS5-BackupDbUser/releases/tag/v1.00',
+            version: '1.00'
         }
 
     ];
